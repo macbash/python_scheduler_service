@@ -1,0 +1,29 @@
+#! /bin/sh
+#
+# suse          Start up the scheduler
+#
+# chkconfig: 2345 90 10
+# description: Suse is a pet name for my test scheduler
+#
+# processname: suse
+
+# /etc/init.d/example
+
+case "$1" in
+  start)
+    echo "Starting example"
+    # run application you want to start
+    python /home/ec2-user/py/clock.py &
+    ;;
+  stop)
+    echo "Stopping example"
+    # kill application you want to stop
+    killall python
+    ;;
+  *)
+    echo "Usage: /etc/init.d/example{start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0
